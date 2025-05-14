@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.jlmorab.ms</groupId>
+		<artifactId>ms-parent</artifactId>
+		<version>0.2.3</version>
+	</parent>
+	
+	<artifactId>ms-message</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ms-message</name>
+	<description>Messaging broker emulation service</description>
+	
+	<developers>
+		<developer>
+			<name>José Luis Mora Barrios</name>
+			<email>jlmorab@hotmail.com</email>
+		</developer>
+	</developers>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>21</java.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub jlmorab - Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/jlmorab/ms</url>
+		</repository>
+	</repositories>
+	
+	<build>
+		
+		<plugins>
+			
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	            <configuration>
+	                <skip>true</skip>
+	            </configuration>
+			</plugin>
+			
+		</plugins>
+		
+	</build>
+	
+</project>
