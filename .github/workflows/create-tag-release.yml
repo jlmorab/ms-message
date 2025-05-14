@@ -1,0 +1,56 @@
+name: Create tag
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: maven
+    
+      - name: Set up Maven settings.xml
+        uses: s4u/maven-settings-action@v2.8.0
+        with:
+          servers: |
+            [{
+              "id":"github",
+              "username": "${{ github.actor }}",
+              "password": "${{ secrets.PUBLISH_TOKEN }}"
+            },
+            {
+              "id":"github-ms.data",
+              "username": "${{ github.actor }}",
+              "password": "${{ secrets.PUBLISH_TOKEN }}"
+            },
+            {
+              "id":"github-ms",
+              "username": "${{ github.actor }}",
+              "password": "${{ secrets.PUBLISH_TOKEN }}"
+            }]
+
+      - name: Get project version
+        id: get_version
+        run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+
+      - name: Create tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag v${{ env.VERSION }} -m ""
+          git push origin v${{ env.VERSION }}
