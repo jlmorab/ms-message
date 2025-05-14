@@ -27,6 +27,14 @@
 		<java.version>21</java.version>
 	</properties>
 	
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub jlmorab Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/jlmorab/ms</url>
+		</repository>
+	</distributionManagement>
+	
 	<repositories>
 		<repository>
 			<id>github</id>
