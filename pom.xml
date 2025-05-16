@@ -10,9 +10,9 @@
 		<version>0.2.3</version>
 	</parent>
 	
-	<artifactId>ms-message</artifactId>
 	<version>0.0.1</version>
-	<name>ms-message</name>
+	<artifactId>ms-message-local</artifactId>
+	<name>ms-message-local</name>
 	<description>Messaging broker emulation service</description>
 	
 	<developers>
