@@ -95,6 +95,15 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 		
+		<!-- Test dependencies -->
+		
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-test-tools</artifactId>
+			<version>0.5.1</version>
+			<scope>test</scope>
+		</dependency>
+	
 	</dependencies>
 	
 </project>
