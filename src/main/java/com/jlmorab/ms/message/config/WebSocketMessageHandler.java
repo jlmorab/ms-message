@@ -149,6 +149,11 @@ public class WebSocketMessageHandler extends TextWebSocketHandler {
 	
 	
 	private void subscribe( WebSocketSession session, String channel ) throws IOException {
+		if( sessionToChannels.getOrDefault( session.getId(), Collections.emptySet() ).contains( channel ) ) {
+			log.debug("Session {} is already subscribed to {}", session.getId(), channel);
+			return;
+		}//end if
+		
 		channelSubscriptions.computeIfAbsent( channel, k -> ConcurrentHashMap.newKeySet() ).add( session );
 		sessionToChannels.computeIfAbsent( session.getId(), k -> ConcurrentHashMap.newKeySet() ).add( channel );
 		log.debug("WebSocket session {} subscribed to channel {}", session.getId(), channel);
