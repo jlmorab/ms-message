@@ -12,7 +12,7 @@
 	
 	<groupId>com.jlmorab.ms.message</groupId>
 	<artifactId>ms-message-local</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>ms-message-local</name>
 	<description>Messaging broker emulation service</description>
 	
