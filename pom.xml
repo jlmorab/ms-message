@@ -10,9 +10,10 @@
 		<version>0.2.3</version>
 	</parent>
 	
-	<artifactId>ms-message</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-message</name>
+	<groupId>com.jlmorab.ms.message</groupId>
+	<artifactId>ms-message-local</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<name>ms-message-local</name>
 	<description>Messaging broker emulation service</description>
 	
 	<developers>
@@ -43,20 +44,67 @@
 		</repository>
 	</repositories>
 	
-	<build>
+	<dependencies>
+
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-message-core</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-common-tools</artifactId>
+			<version>0.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-security-tools</artifactId>
+			<version>0.2.0</version>
+		</dependency>
 		
-		<plugins>
-			
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-	            <artifactId>spring-boot-maven-plugin</artifactId>
-	            <configuration>
-	                <skip>true</skip>
-	            </configuration>
-			</plugin>
-			
-		</plugins>
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-documentation-tools</artifactId>
+			<version>0.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		
-	</build>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		
+		<!-- Test dependencies -->
+		
+		<dependency>
+			<groupId>com.jlmorab.ms</groupId>
+			<artifactId>ms-test-tools</artifactId>
+			<version>0.5.1</version>
+			<scope>test</scope>
+		</dependency>
+	
+	</dependencies>
 	
 </project>
