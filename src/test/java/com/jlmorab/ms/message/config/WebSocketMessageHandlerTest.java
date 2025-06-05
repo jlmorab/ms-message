@@ -230,6 +230,23 @@ class WebSocketMessageHandlerTest {
 	}//end handleTextMessage_withSubscribeAction_shouldBeSubscribe()
 	
 	@Test
+	void handleTextMessage_withSubscribeActionWhenSessionAlredySubscribed_shouldBeSkipSubscribeAgain() throws Exception {
+		sessionToChannels.put( ANY_TEXT, new HashSet<>(List.of(CHANNEL_ONE)) );
+		WebSocketMessage message = WebSocketMessage.builder()
+				.action( WebSocketActionEnum.SUBSCRIBE )
+				.channel( CHANNEL_ONE )
+				.payload( ANY_TEXT )
+				.build();
+		String payload = objectMapper.writeValueAsString( message );
+		when( textMessage.getPayload() ).thenReturn( payload );
+		
+		handler.handleTextMessage( session, textMessage );
+		
+		assertThat( loggerHelper.getOutContent() )
+			.contains("Session " + ANY_TEXT + " is already subscribed to " + CHANNEL_ONE);
+	}//end handleTextMessage_withSubscribeActionWhenSessionAlredySubscribed_shouldBeSkipSubscribeAgain()
+	
+	@Test
 	void handleTextMessage_withUnsubscribeAction_shouldBeUnsubscribeAndRemoveChannel() throws Exception {
 		channelSubscriptions.put( CHANNEL_ONE, new HashSet<>(List.of(session)) );
 		sessionToChannels.put( ANY_TEXT, new HashSet<>(List.of(CHANNEL_ONE)) );
