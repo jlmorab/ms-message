@@ -1,2 +1,2 @@
-# ms-message
+# ms-message-local
 Messaging broker emulation service
