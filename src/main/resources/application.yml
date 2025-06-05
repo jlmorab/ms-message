@@ -1,0 +1,12 @@
+server:
+  port: ${MESSAGE_BROKER_PORT:8080}
+  servlet:
+    context-path: /message-local
+
+websocket:
+  message:
+    max-size: 65536
+  cleanup:
+    interval-ms: 300000
+  services:
+    broker: "*"

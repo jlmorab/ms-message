@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "websocket.message.max-size",
+    "type": "java.lang.String",
+    "description": "Maximum message size in bytes"
+  },
+  {
+    "name": "websocket.cleanup.interval-ms",
+    "type": "java.lang.String",
+    "description": "Interval time to clean up inactive sessions"
+  },
+  {
+    "name": "websocket.services.broker",
+    "type": "java.lang.String",
+    "description": "Allowed origins for websocket broker"
+  }
+]}
